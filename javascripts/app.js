@@ -154,6 +154,35 @@ function initializeAudioNodes() {
   masterGainNode = context.createGain();
   masterGainNode.gain.value = 0.7; // reduce overall volume to avoid clipping
   masterGainNode.connect(finalMixNode);
+
+
+
+
+
+
+
+
+    source = finalMixNode;
+
+    delay = context.createDelay();
+    delay.delayTime.value = 0.5;
+
+    feedback = context.createGain();
+    feedback.gain.value = 0.8;
+
+    filter = context.createBiquadFilter();
+    filter.frequency.value = 1000;
+
+    delay.connect(feedback);
+    feedback.connect(filter);
+    filter.connect(delay);
+
+    source.connect(delay);
+    source.connect(context.destination);
+    delay.connect(context.destination);
+
+
+  
       recorder = new Recorder(finalMixNode);
 
 

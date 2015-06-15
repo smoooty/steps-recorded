@@ -592,7 +592,22 @@
         
       </div>
     </div>
+<div class="row">
 
+</script>
+<ul class="list">    
+<li>
+<p>filter freq</p>
+  <input class="feedbackDelay" type="range" min="0" max="3000" step="0.01" value="1000" onchange="filter.frequency.value = $(this).val();" /></li>
+<li>
+<p>feedback gain</p>
+  <input class="feedbackDelay" type="range" min="0" max="10" step="0.015" value="0.8" onchange="feedback.gain.value = $(this).val();" /></li>
+<li>
+<p>delay time</p>
+  <input class="feedbackDelay" type="range" min="0" max="1" step="0.01" value="0.5" onchange="delay.delayTime.value = $(this).val();"</li></ul>
+</li>
+ </ul>
+</div>
 
     <div class="row">
       <div class="filter-controls col-md-4">
@@ -656,6 +671,8 @@
   <script type="text/javascript" src="javascripts/impulse-response.js"></script>
   <script type="text/javascript" src="javascripts/app.js"></script>
     <script type="text/javascript" src="recorder.js"></script>
+      <script type="text/javascript" src="javascripts/tone.min.js"></script>
+
 
 
 </body>
