@@ -1,6 +1,10 @@
+body {
+@import url(http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700,300italic,400italic,500italic,700italic);
+  font-family: 'Fira Sans', sans-serif;
+}
 .pad {
-  width: 3em; 
-  height: 3em; 
+  width: 1.4em; 
+  height: 1.4em; 
   margin-bottom: 0em;
   display: inline-block; 
   background: #DADADA; 
@@ -9,17 +13,20 @@
 }
 
 .selected {
-  background: #00FF00;
+  background: #97ffd6;
 }
 
 .playing {
-  background: radial-gradient(#FCFCFC, #E3E3E3, #B6B6B6);
+  background: #b0f7ff;
 }
 
 .playing.selected {
-  background: radial-gradient(#E6FFE6, #99FF99, #66FF66); 
+  background: #ffb0f7; 
 }
 
+.pink{
+  color: #ffb0f7; 
+}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -33,30 +40,43 @@
   margin: 10px 0;
 }
 
+#play-pause :hover{
+  color: #ffb0f7 ;
+}
+
 .control {
   margin: 10px 0;
+}
+
+#plus-minus :hover{
+  color: #ffb0f7 ;
+}
+
+#record-stop :hover{
+  color: #ffb0f7 ;
 }
 
 .instrument-label {
     display: inline-block;
     vertical-align: top;
-    width: 4em;
+    width: 3em;
     position: relative;
     top: 1em;
     text-align: right;
     margin-right: 0.5em;
+    font-size:.8em;
 }
 
 .tempo-container {
-  margin: 0 10px;
-}
+margin-right:10px;
+margin-bottom:10px;}
 
 #tempo-input {
-  margin: 0 10px;
+  margin-bottom:10px;
   line-height: 30px;
-  border-radius: 3px;
-  font-size: 25px;
-  width: 60px;
+  border-radius: 0px;
+  font-size: 2.8em;
+  width: 100px;
   vertical-align: middle;
 }
 
@@ -65,5 +85,36 @@
 }
 
 .feedbackDelay{
-      width: 100px;
+      width: 100%;
+}
+.container{
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: #97ffd6;
+    height:20px;
+    padding: 0px;
+    margin:0px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #ffb0f7;
+    opacity: 0.9;
+    width: 20px;
+    height: 20px;
+    border:none;
+}
+
+input {
+
+    -webkit-appearance: none !important;
+   
+   -webkit-border-radius:0px !important; 
+
+    border-radius: 0 !important;
+
 }

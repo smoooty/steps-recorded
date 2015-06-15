@@ -16,6 +16,17 @@ function Kit(name) {
   this.cyBuffer = null;
   this.rsBuffer = null;
 
+  this.c0Buffer = null;
+  this.d0Buffer = null;
+  this.e0Buffer = null;
+  this.f0Buffer = null;
+  this.g0Buffer = null;
+  this.a0Buffer = null;
+  this.b0Buffer = null;
+  this.c1Buffer = null;
+  this.d1Buffer = null;
+
+
   this.startedLoading = false;
   this.isLoaded = false;
   this.instrumentLoadCount = 0;
@@ -47,6 +58,16 @@ Kit.prototype.load = function() {
   var cyPath = pathName + "cy.mp3";
   var rsPath = pathName + "rs.mp3";
 
+  var c0Path = pathName + "c0.wav";
+  var d0Path = pathName + "d0.wav";
+  var e0Path = pathName + "e0.wav";
+  var f0Path = pathName + "f0.wav";
+  var g0Path = pathName + "g0.wav";
+  var a0Path = pathName + "a0.wav";
+  var b0Path = pathName + "b0.wav";
+  var c1Path = pathName + "c1.wav";
+  var d1Path = pathName + "d1.wav";
+
   this.loadSample(kickPath, "kick");
   this.loadSample(snarePath, "snare");
   this.loadSample(hihatPath, "hihat");
@@ -58,6 +79,16 @@ Kit.prototype.load = function() {
   this.loadSample(cpPath, "cp");
   this.loadSample(cyPath, "cy");
   this.loadSample(rsPath, "rs");
+
+  this.loadSample(c0Path, "c0");
+  this.loadSample(d0Path, "d0");
+  this.loadSample(e0Path, "e0");
+  this.loadSample(f0Path, "f0");
+  this.loadSample(g0Path, "g0");
+  this.loadSample(a0Path, "a0");
+  this.loadSample(b0Path, "b0");
+  this.loadSample(c1Path, "c1");
+  this.loadSample(d1Path, "d1");
 
 };
 
@@ -111,6 +142,34 @@ Kit.prototype.loadSample = function(url, instrumentName) {
           case "rs":
             kit.rsBuffer = buffer;
             break;  
+          case "c0":
+            kit.c0Buffer = buffer;
+            break; 
+          case "d0":
+            kit.d0Buffer = buffer;
+            break; 
+          case "e0":
+            kit.e0Buffer = buffer;
+            break;  
+          case "f0":
+            kit.f0Buffer = buffer;
+            break; 
+          case "g0":
+            kit.g0Buffer = buffer;
+            break; 
+          case "a0":
+            kit.a0Buffer = buffer;
+            break; 
+          case "b0":
+            kit.b0Buffer = buffer;
+            break;  
+          case "c1":
+            kit.c1Buffer = buffer;
+            break; 
+          case "d1":
+            kit.d1Buffer = buffer;
+            break; 
+              
         }
         kit.instrumentLoadCount++;
         if (kit.instrumentLoadCount === NUM_INSTRUMENTS) {

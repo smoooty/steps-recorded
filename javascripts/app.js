@@ -18,8 +18,8 @@ var currentKit = null;
 var reverbImpulseResponse = null;
 
 var tempo = 120;
-var TEMPO_MAX = 200;
-var TEMPO_MIN = 40;
+var TEMPO_MAX = 400;
+var TEMPO_MIN = 20;
 var TEMPO_STEP = 4;
 var recorder;
 
@@ -110,18 +110,21 @@ function changeQuality(event, ui) {
 function playPauseListener() {
   $('#play-pause').click(function() {
     var $span = $(this).children("span");
-    if($span.hasClass('glyphicon-play')) {
-      $span.removeClass('glyphicon-play');
-      $span.addClass('glyphicon-pause');
+    if($span.hasClass('fa-play')) {
+      $span.removeClass('fa-play');
+      $span.addClass('fa-pause');
       handlePlay();
     } 
     else {
-      $span.addClass('glyphicon-play');
-      $span.removeClass('glyphicon-pause');
+      $span.addClass('fa-play');
+      $span.removeClass('fa-pause');
       handleStop();
     }
   });
 }
+
+
+
 
 function toggleSelectedListener() {
   $('.pad').click(function() {
@@ -162,7 +165,7 @@ function initializeAudioNodes() {
 
 
 
-    source = finalMixNode;
+    source = masterGainNode;
 
     delay = context.createDelay();
     delay.delayTime.value = 0.5;
@@ -312,12 +315,39 @@ function schedule() {
          case "cp":
             playNote(currentKit.cpBuffer, contextPlayTime);
             break;  
-        case "cy":
+          case "cy":
             playNote(currentKit.cyBuffer, contextPlayTime);
             break;
-        case "rs":
+          case "rs":
             playNote(currentKit.rsBuffer, contextPlayTime);
+            break; 
+          case "c0":
+            playNote(currentKit.c0Buffer, contextPlayTime);
             break;  
+          case "d0":
+            playNote(currentKit.d0Buffer, contextPlayTime);
+            break;  
+          case "e0":
+            playNote(currentKit.e0Buffer, contextPlayTime);
+            break;  
+          case "f0":
+            playNote(currentKit.f0Buffer, contextPlayTime);
+            break;  
+          case "g0":
+            playNote(currentKit.g0Buffer, contextPlayTime);
+            break;  
+          case "a0":
+            playNote(currentKit.a0Buffer, contextPlayTime);
+            break;  
+          case "b0":
+            playNote(currentKit.b0Buffer, contextPlayTime);
+            break; 
+          case "c1":
+            playNote(currentKit.c1Buffer, contextPlayTime);
+            break;  
+          case "d1":
+            playNote(currentKit.d1Buffer, contextPlayTime);
+            break;               
 
         }
           //play the buffer
@@ -408,9 +438,7 @@ function __log(e, data) {
   var recorder;
 
   function startUserMedia() {
-    var input = audio_context.createOscillator();;
-    osc.frequency.value=500;
-    osc.start();
+    
     __log('Media stream created.');
     input.start();
     __log('Input connected to audio context destination.');
@@ -419,17 +447,17 @@ function __log(e, data) {
     __log('Recorder initialised.');
   }
 
-  function startRecording(button) {
+  function startRecording(span) {
     recorder && recorder.record();
-    button.disabled = true;
-    button.nextElementSibling.disabled = false;
+    span.hidden = true;
+    span.nextElementSibling.hidden = false;
     __log('Recording...');
   }
 
-  function stopRecording(button) {
+  function stopRecording(span) {
     recorder && recorder.stop();
-    button.disabled = true;
-    button.previousElementSibling.disabled = false;
+    span.hidden = true;
+    span.previousElementSibling.hidden = false;
     __log('Stopped recording.');
     
     // create WAV download link using audio data blob
@@ -472,3 +500,5 @@ function __log(e, data) {
     initializeAudioNodes();
     
   };
+
+
