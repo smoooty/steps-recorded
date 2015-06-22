@@ -132,6 +132,18 @@ function toggleSelectedListener() {
   });
 }
 
+function toggleJumpListener() {
+  $('.pad').click(function() {
+    $(this).toggleClass("selected");
+  });
+}
+
+function toggleLengthListener() {
+  $('.pad3').click(function() {
+    $(this).toggleClass("selected3");
+  });
+}
+
 function init() {
   initializeAudioNodes();
   loadKits();
